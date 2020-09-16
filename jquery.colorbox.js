@@ -16,7 +16,7 @@
 
 			// behavior and appearance
 			transition: "elastic",
-			speed: 0,
+			speed: 300,
 			fadeOut: 300,
 			width: false,
 			initialWidth: "600",
@@ -410,6 +410,7 @@
 				// Show colorbox so the sizes can be calculated in older versions of jQuery
 				$box.css({ visibility: 'hidden', display: 'block', opacity: '' });
 
+				// $loaded = $tag(div, 'LoadedContent', 'width:0; height:0; overflow:hidden; visibility:hidden');
 				$loaded = $tag(div, 'LoadedContent', 'width:0; height:0; overflow:hidden; visibility:hidden');
 				$content.css({ width: '', height: '' }).append($loaded);
 
@@ -534,6 +535,8 @@
 				"data-type": "button",
 			});
 
+			// I have no idea what's the function of the 9 grids
+			// It seems like only 2 are being used
 			$wrap.append( // The 3x3 Grid that makes up Colorbox
 				$tag(div).append(
 					$tag(div, "TopLeft"),
@@ -706,9 +709,25 @@
 			$box.css({ position: 'absolute' });
 		}
 
+		// Update loaded width if it is 0 because we are using fluid width for loaded content
+		// if (loadedWidth == 0) {
+		// 	loadedWidth = $loaded.outerWidth(true);
+		// }
+
+		// Nope, turns out we should override the global variables with local ones
+		const loadedContentWidth = $loaded.outerWidth(true);
+
+		// console.log({
+		// 	loadedWidth,
+		// 	loadedHeight,
+		// 	window: $window.width(),
+		// })
+		// console.log($loaded.outerWidth(true))
+
 		// keeps the top and left positions within the browser's viewport.
 		if (settings.get('right') !== false) {
-			left += Math.max($window.width() - settings.w - loadedWidth - interfaceWidth - setSize(settings.get('right'), 'x'), 0);
+			// left += Math.max($window.width() - settings.w - loadedWidth - interfaceWidth - setSize(settings.get('right'), 'x'), 0);
+			left += Math.max($window.width() - settings.w - loadedContentWidth - interfaceWidth - setSize(settings.get('right'), 'x'), 0);
 		} else if (settings.get('left') !== false) {
 			left += setSize(settings.get('left'), 'x');
 		} else {
@@ -728,7 +747,8 @@
 		// this gives the wrapper plenty of breathing room so it's floated contents can move around smoothly,
 		// but it has to be shrank down around the size of div#colorbox when it's done.  If not,
 		// it can invoke an obscure IE bug when using iframes.
-		$wrap[0].style.width = $wrap[0].style.height = "9999px";
+		// Are you kidding me?
+		// $wrap[0].style.width = $wrap[0].style.height = "9999px";
 
 		function modalDimensions() {
 			// console.log('interfaceWidth', interfaceWidth)
@@ -738,11 +758,11 @@
 			$topBorder[0].style.width = $bottomBorder[0].style.width = (parseInt($box[0].style.width, 10) - interfaceWidth) + 'px';
 
 			// Since we are using box-sizing border-box, no need to subtract interface width
-			$loaded.css({
-				// width: parseInt($box[0].style.width, 10) + 'px',
-			});
-			// console.log($loaded[0], parseInt($box[0].style.width, 10))
+			// $loaded.css({
+			// width: parseInt($box[0].style.width, 10) + 'px',
+			// });
 
+			// console.log($loaded[0], parseInt($box[0].style.width, 10))
 			// console.log($box[0])
 
 			let height = (parseInt($box[0].style.height, 10) - interfaceHeight);
@@ -787,11 +807,15 @@
 				// shrink the wrapper down to exactly the size of colorbox to avoid a bug in IE's iframe implementation.
 				$wrap[0].style.width = (settings.w + loadedWidth + interfaceWidth) + "px";
 				$wrap[0].style.height = (settings.h + loadedHeight + interfaceHeight) + "px";
+				$loaded[0].style.width = 'unset';
 
 				if (settings.get('reposition')) {
-					setTimeout(function () {  // small delay before binding onresize due to an IE8 bug.
-						$window.on('resize.' + prefix, publicMethod.position);
-					}, 1);
+					$window.on('resize.' + prefix, publicMethod.position);
+
+					// Goodbye IE8
+					// setTimeout(function () {  // small delay before binding onresize due to an IE8 bug.
+					// 	$window.on('resize.' + prefix, publicMethod.position);
+					// }, 1);
 				}
 
 				if (typeof loadedCallback === 'function') {
@@ -864,8 +888,11 @@
 			return settings.h;
 		}
 
+		// console.log({ width: getWidth(), overflow: settings.get('scrolling') ? 'auto' : 'hidden' });
 		$loaded.hide()
 			.appendTo($loadingBay.show())// content has to be appended to the DOM for accurate size calculations.
+			// Fluid layout for loaded
+			// .css({ width: getWidth(), overflow: settings.get('scrolling') ? 'auto' : 'hidden' })
 			.css({ width: getWidth(), overflow: settings.get('scrolling') ? 'auto' : 'hidden' })
 			.css({ height: getHeight() })// sets the height independently from the width in case the new width influences the value of height.
 			.prependTo($content);
