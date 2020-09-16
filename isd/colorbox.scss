@@ -48,22 +48,6 @@
 #cboxBottomLeft {
   clear: left;
 }
-#cboxContent {
-  position: relative;
-  // background: rgb(244, 244, 244) !important;
-  float: unset;
-  width: 100%;
-  height: unset;
-  margin-right: 0;
-  padding: 2em;
-  // height: unset;
-  border-radius: 16px;
-  box-sizing: border-box;
-}
-#cboxLoadedContent {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
 #cboxTitle {
   margin: 0;
 }
@@ -352,13 +336,13 @@
   display: block;
   overflow: hidden;
   font-size: 0;
+  position: absolute;
+  right: 16px;
+  top: 16px;
   &::before {
     display: inline;
     content: "\2715";
     font-size: 30px;
-    position: absolute;
-    right: 16px;
-    top: 16px;
   }
   &:hover {
     opacity: 0.7;
@@ -390,14 +374,37 @@
   background-position: -25px -25px;
 }
 
+#cboxLoadedContent {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  // background: green;
+  // height: 500px;
+}
+
+#cboxContent {
+  // position: relative;
+  // background: rgb(244, 244, 244) !important;
+  float: unset;
+  width: 100%;
+  margin-right: 0;
+  padding: 2em;
+  border-radius: 16px;
+  box-sizing: border-box;
+  // background: red;
+}
+
+#colorbox {
+  background: #e8e8e8;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+}
+
 // All the content within the cbox div appended at the end of body tag
 #cboxWrapper {
   // background: rgb(244, 244, 244) !important;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 12px;
-  background: #e8e8e8;
-  position: absolute;
+  // overflow: hidden;
+  // position: absolute;
   top: 0;
   left: 0;
   z-index: 9999999;
@@ -423,6 +430,9 @@
   }
 
   .cboxButtonGroup {
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
     display: flex;
     justify-content: flex-end;
     margin: 0 -12px;
@@ -436,7 +446,6 @@
       text-align: center;
       margin: 0 12px;
       min-height: 18px;
-
       &:hover {
         cursor: pointer;
         opacity: 0.7;

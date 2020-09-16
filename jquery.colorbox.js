@@ -185,7 +185,8 @@
 		$cancel,
 		$save,
 		$cancelButtonBG,
-		$saveButtonBG;
+		$saveButtonBG,
+		$buttonGroup;
 
 	// ****************
 	// HELPER FUNCTIONS
@@ -474,22 +475,22 @@
 				$close.appendTo('<div/>'); // replace with .detach() when dropping jQuery < 1.4
 			}
 
-			const buttonGroup = $(`<div class="${prefix}ButtonGroup" />`)
+			$buttonGroup = $(`<div class="${prefix}ButtonGroup" />`)
 
 			if (settings.get('saveButton')) {
 				$save.css({
 					"background-color": settings.get('saveButtonBG') || $saveButtonBG || null,
-				}).html(settings.get('save')).appendTo(buttonGroup);
+				}).html(settings.get('save')).appendTo($buttonGroup);
 			}
 
 			if (settings.get('cancelButton')) {
 				$cancel.css({
 					"background-color": settings.get('cancelButtonBG') || $cancelButtonBG || null,
-				}).html(settings.get('cancel')).appendTo(buttonGroup);
+				}).html(settings.get('cancel')).appendTo($buttonGroup);
 			}
 
-			if (buttonGroup.children().length > 0) {
-				buttonGroup.appendTo($content);
+			if ($buttonGroup.children().length > 0) {
+				$buttonGroup.appendTo($content);
 			}
 
 			load();
@@ -560,7 +561,9 @@
 			$groupControls = $next.add($prev).add($current).add($slideshow);
 		}
 		if (document.body && !$box.parent().length) {
-			$(document.body).append($overlay, $box.append($wrap, $loadingBay));
+			// Add a relative positioned div inside colorbox
+			$box.append($tag(div, prefix + 'Relative', `position:relative; width:100%; height:100%`).append($wrap, $loadingBay));
+			$(document.body).append($overlay, $box);
 		}
 	}
 
@@ -587,6 +590,9 @@
 					publicMethod.prev();
 				});
 				$close.click(function () {
+					publicMethod.close();
+				});
+				$cancel.click(function () {
 					publicMethod.close();
 				});
 				$overlay.click(function () {
@@ -748,7 +754,14 @@
 		// but it has to be shrank down around the size of div#colorbox when it's done.  If not,
 		// it can invoke an obscure IE bug when using iframes.
 		// Are you kidding me?
+
 		// $wrap[0].style.width = $wrap[0].style.height = "9999px";
+		// $wrap[0].style.width = settings.get('width');
+		// $wrap[0].style.height = settings.get('height');
+		// $wrap[0].style.width = settings.get('width') + 'px';
+		// $wrap[0].style.height = settings.get('height') + 'px';
+		$wrap[0].style.width = '3000px';
+		$wrap[0].style.height = '3000px';
 
 		function modalDimensions() {
 			// console.log('interfaceWidth', interfaceWidth)
@@ -874,6 +887,7 @@
 		var callback, speed = settings.get('transition') === "none" ? 0 : settings.get('speed');
 
 		$loaded.remove();
+
 
 		$loaded = $tag(div, 'LoadedContent').append(object);
 
@@ -1015,6 +1029,8 @@
 		trigger(event_purge);
 		trigger(event_load);
 		settings.get('onLoad');
+
+		// console.log('onload', settings.w, settings.h);
 
 		settings.h = settings.get('height') ?
 			setSize(settings.get('height'), 'y') - loadedHeight - interfaceHeight :
@@ -1163,6 +1179,7 @@
 				$overlay.hide();
 				trigger(event_purge);
 				$loaded.remove();
+				$buttonGroup.remove();
 
 				setTimeout(function () {
 					closing = false;
@@ -1181,6 +1198,7 @@
 		$[colorbox].close();
 		$box.stop(false, true).remove();
 		$overlay.remove();
+		$buttonGroup.remove();
 		closing = false;
 		$box = null;
 		$('.' + boxElement)
