@@ -3,6 +3,13 @@ A customizable lightbox plugin for jQuery.  See the [project page](http://jacklm
 
 ## Changelog:
 
+##### Version 2.0.0 - 2020/09/15
+
+* Added custom colorbox with save and cancel buttons
+* Change the box-sizing for cboxContent to be border-box
+* Updated deprecated jQuery functions calls
+* Get rid of IE8 support - It's 2020!
+
 ##### Version 1.6.4 - 2016/05/10
 
 * Fixed bug where using the inline property would duplicate target elements, if the selector matched multiple elements.
@@ -556,7 +563,7 @@ Files Changed: jquery.colorbox.js, jquery.colorbox-min.js
 
 ##### Version 1.1.5 - April 11 2009
 * Fixed minor issues with exiting Colorbox.
- 
+
 ##### Version 1.1.4 - April 08 2009
 * Fixed a bug in the fade transition where Colorbox not close completely if instructed to close during the fade-in portion of the transition.
 
@@ -584,7 +591,7 @@ Files Changed: jquery.colorbox.js, jquery.colorbox-min.js
 * Added support for % sizing.
 * Callback option added.
 * Inline content now preserves JavaScript events, and changes made while Colorbox is open are also preserved.
-* Added 'href' setting to add the ability to set an alternative href for any anchor, or to assign the Colorbox event to non-anchors. 
+* Added 'href' setting to add the ability to set an alternative href for any anchor, or to assign the Colorbox event to non-anchors.
   Example: $('button').colorbox({'href':'process.php'})
   Example: $('a[href='http://msn.com']).colorbox({'href':'http://google.com', iframe:true});
 * Photos are now horizontally centered if they are smaller than the lightbox size.  Also vertically centered for browsers newer than IE7.
