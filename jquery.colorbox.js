@@ -428,7 +428,8 @@
 				settings.w = Math.max((maxWidth !== false ? Math.min(initialWidth, setSize(maxWidth, 'x')) : initialWidth) - loadedWidth - interfaceWidth, 0);
 				settings.h = Math.max((maxHeight !== false ? Math.min(initialHeight, setSize(maxHeight, 'y')) : initialHeight) - loadedHeight - interfaceHeight, 0);
 
-				$loaded.css({ width: '', height: settings.h });
+				// $loaded.css({ width: '', height: settings.h });
+				$loaded.css({ height: settings.h });
 				publicMethod.position();
 
 				trigger(event_open);
@@ -738,9 +739,9 @@
 
 			// Since we are using box-sizing border-box, no need to subtract interface width
 			$loaded.css({
-				width: parseInt($box[0].style.width, 10) + 'px',
+				// width: parseInt($box[0].style.width, 10) + 'px',
 			});
-			console.log($loaded[0], parseInt($box[0].style.width, 10))
+			// console.log($loaded[0], parseInt($box[0].style.width, 10))
 
 			// console.log($box[0])
 
@@ -815,7 +816,7 @@
 				settings.w = setSize(options.innerWidth, 'x');
 			}
 
-			$loaded.css({ width: settings.w });
+			// $loaded.css({ width: settings.w });
 
 			if (options.height) {
 				settings.h = setSize(options.height, 'y') - loadedHeight - interfaceHeight;

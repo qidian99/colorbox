@@ -506,7 +506,7 @@
   min-width: 120px;
   text-align: center;
   margin: 0 12px;
-  height: 18px;
+  min-height: 18px;
 }
 /* line 442, colorbox.scss */
 #cboxWrapper .cboxButtonGroup a[data-type="button"]:hover {
