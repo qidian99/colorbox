@@ -78,9 +78,9 @@
 
 			// ISD
 			cancel: 'Cancel',
-			cancelButton: true,
+			cancelButton: false,
 			save: 'Save',
-			saveButton: true,
+			saveButton: false,
 			saveButtonBG: '#418BC2',
 			cancelButtonBG: '#CCC',
 			onSaved: false,
@@ -478,13 +478,13 @@
 
 			$buttonGroup = $(`<div class="${prefix}ButtonGroup" />`)
 
-			if (settings.get('saveButton')) {
+			if (settings.get('saveButton') != 0) {
 				$save.css({
 					"background-color": settings.get('saveButtonBG') || $saveButtonBG || null,
 				}).html(settings.get('save')).appendTo($buttonGroup);
 			}
 
-			if (settings.get('cancelButton')) {
+			if (settings.get('cancelButton') != 0) {
 				$cancel.css({
 					"background-color": settings.get('cancelButtonBG') || $cancelButtonBG || null,
 				}).html(settings.get('cancel')).appendTo($buttonGroup);
@@ -791,7 +791,7 @@
 			$leftBorder[0].style.height = $rightBorder[0].style.height = height + 'px';
 
 			// Add extra height for the buttons
-			if (settings.get('cancelButton') || settings.get('saveButton')) {
+			if (settings.get('cancelButton') != 0|| settings.get('saveButton') != 0) {
 				// height += 66;
 			}
 			height + 'px';
