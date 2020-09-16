@@ -499,6 +499,16 @@
 				}).html(settings.get('cancel')).appendTo($buttonGroup);
 			}
 
+			// Action buttons on click handlers
+			// console.log($cancel);
+			$cancel.click(function () {
+				publicMethod.close();
+			});
+			$save.click(function () {
+				trigger('cboxSave');
+				settings.get('onSaved');
+			});
+
 			if ($buttonGroup.children().length > 0) {
 				$buttonGroup.appendTo($content);
 			}
@@ -601,15 +611,6 @@
 				});
 				$close.click(function () {
 					publicMethod.close();
-				});
-				// Action buttons on click handlers
-				// console.log($cancel);
-				$cancel.click(function () {
-					publicMethod.close();
-				});
-				$save.click(function () {
-					trigger('cboxSave');
-					settings.get('onSaved');
 				});
 				$overlay.click(function () {
 					if (settings.get('overlayClose')) {
@@ -1220,7 +1221,7 @@
 				$overlay.hide();
 				trigger(event_purge);
 				$loaded.remove();
-				// $buttonGroup.remove();
+				$buttonGroup.remove();
 
 				setTimeout(function () {
 					closing = false;
@@ -1239,7 +1240,7 @@
 		$[colorbox].close();
 		$box.stop(false, true).remove();
 		$overlay.remove();
-		// $buttonGroup.remove();
+		$buttonGroup.remove();
 		closing = false;
 		$box = null;
 		$('.' + boxElement)
