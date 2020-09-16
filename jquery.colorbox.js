@@ -433,8 +433,8 @@
 				settings.h = Math.max((maxHeight !== false ? Math.min(initialHeight, setSize(maxHeight, 'y')) : initialHeight) - loadedHeight - interfaceHeight, 0);
 
 				// $loaded.css({ width: '', height: settings.h });
-				console.log('loaded', initialHeight, settings.h, $loaded[0], loadedHeight, interfaceHeight)
-				console.log($topBorder.height(), $bottomBorder.height(), $content.outerHeight(true), $content.height())
+				// console.log('loaded', initialHeight, settings.h, $loaded[0], loadedHeight, interfaceHeight)
+				// console.log($topBorder.height(), $bottomBorder.height(), $content.outerHeight(true), $content.height())
 
 				$loaded.css({ height: settings.h });
 
@@ -485,6 +485,11 @@
 				$close.appendTo('<div/>'); // replace with .detach() when dropping jQuery < 1.4
 			}
 
+			if ($buttonGroup) {
+				$buttonGroup.remove();
+				$buttonGroup = null;
+			}
+
 			$buttonGroup = $(`<div class="${prefix}ButtonGroup" />`)
 
 			if (settings.get('saveButton') != 0) {
@@ -513,6 +518,9 @@
 				$buttonGroup.appendTo($content);
 			}
 
+			// Final check of the action buttons
+			// console.log($buttonGroup)
+
 			load();
 		}
 	}
@@ -520,6 +528,7 @@
 	// Colorbox's markup needs to be added to the DOM prior to being called
 	// so that the browser will go ahead and load the CSS background images.
 	function appendHTML() {
+		console.log('appending html', $box, !$box)
 		if (!$box) {
 			init = false;
 			$window = $(window);
@@ -579,11 +588,12 @@
 			$loadingBay = $tag(div, false, 'position:absolute; width:9999px; visibility:hidden; display:none; max-width:none;');
 
 			$groupControls = $next.add($prev).add($current).add($slideshow);
-		}
-		if (document.body && !$box.parent().length) {
-			// Add a relative positioned div inside colorbox
-			$box.append($tag(div, prefix + 'Relative', `position:relative; width:100%; height:100%`).append($wrap, $loadingBay));
-			$(document.body).append($overlay, $box);
+
+			if (document.body && !$box.parent().length) {
+				// Add a relative positioned div inside colorbox
+				$box.append($tag(div, prefix + 'Relative', `position:relative; width:100%; height:100%`).append($wrap, $loadingBay));
+				$(document.body).append($overlay, $box);
+			}
 		}
 	}
 
@@ -600,6 +610,8 @@
 
 		if ($box) {
 			if (!init) {
+				// TODO: this logic is terrible!!
+				// console.log(init)
 				init = true;
 
 				// Anonymous functions here keep the public method from being cached, thereby allowing them to be redefined on the fly.
@@ -653,6 +665,8 @@
 
 	// Don't do anything if Colorbox already exists.
 	if ($[colorbox]) {
+		// console.log(init);
+		// Don't init twice in general
 		return;
 	}
 
@@ -808,7 +822,7 @@
 			}
 		}
 
-		console.log('box height', settings.h + loadedHeight + interfaceHeight, settings.h, loadedHeight, interfaceHeight);
+		// console.log('box height', settings.h + loadedHeight + interfaceHeight, settings.h, loadedHeight, interfaceHeight);
 		let boxHeight;
 
 		if (settings.get('cancelButton') == 0 && settings.get('saveButton') == 0) {
@@ -931,7 +945,6 @@
 		}
 		function getHeight() {
 			// if there's no actions buttons, only add the padding
-
 			if (settings.get('cancelButton') == 0 && settings.get('saveButton') == 0) {
 				// const maxHeight = settings.get('maxHeight');
 				// const initialHeight = settings.get('initialHeight');
@@ -1208,7 +1221,6 @@
 	// Note: to use this within an iframe use the following format: parent.jQuery.colorbox.close();
 	publicMethod.close = function () {
 		if (open && !closing) {
-
 			closing = true;
 			open = false;
 			trigger(event_cleanup);
@@ -1225,6 +1237,8 @@
 
 				setTimeout(function () {
 					closing = false;
+					// $box.stop(false, true).remove();
+					// $box = null;
 					trigger(event_closed);
 					settings.get('onClosed');
 				}, 1);
@@ -1234,6 +1248,7 @@
 
 	// Removes changes Colorbox made to the document, but does not remove the plugin.
 	publicMethod.remove = function () {
+		// console.log('remove called!!!');
 		if (!$box) { return; }
 
 		$box.stop();
