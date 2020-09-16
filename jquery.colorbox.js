@@ -84,6 +84,7 @@
 			saveButtonBG: '#418BC2',
 			cancelButtonBG: '#CCC',
 			onSaved: false,
+			padding: 32,
 
 			rel: function () {
 				return this.rel;
@@ -432,7 +433,15 @@
 				settings.h = Math.max((maxHeight !== false ? Math.min(initialHeight, setSize(maxHeight, 'y')) : initialHeight) - loadedHeight - interfaceHeight, 0);
 
 				// $loaded.css({ width: '', height: settings.h });
+				console.log('loaded', initialHeight, settings.h, $loaded[0], loadedHeight, interfaceHeight)
+				console.log($topBorder.height(), $bottomBorder.height(), $content.outerHeight(true), $content.height())
+
 				$loaded.css({ height: settings.h });
+
+				// console.log(settings.h)
+				// 	+ ($topBorder.children().length == 0 ? $topBorder.height() : 0)
+				// 	+ ($bottomBorder.children().length == 0 ? $bottomBorder.height() : 0) + 'px')
+
 				publicMethod.position();
 
 				trigger(event_open);
@@ -767,8 +776,8 @@
 		// $wrap[0].style.height = settings.get('height');
 		// $wrap[0].style.width = settings.get('width') + 'px';
 		// $wrap[0].style.height = settings.get('height') + 'px';
-		$wrap[0].style.width = '3000px';
-		$wrap[0].style.height = '3000px';
+		$wrap[0].style.width = '9999px';
+		$wrap[0].style.height = '9999px';
 
 		function modalDimensions() {
 			// console.log('interfaceWidth', interfaceWidth)
@@ -791,13 +800,27 @@
 			$leftBorder[0].style.height = $rightBorder[0].style.height = height + 'px';
 
 			// Add extra height for the buttons
-			if (settings.get('cancelButton') != 0|| settings.get('saveButton') != 0) {
+			// Unset content margin bottom
+			if (settings.get('cancelButton') == 0 && settings.get('saveButton') == 0) {
 				// height += 66;
+				$loaded[0].style["margin-bottom"] = 'unset';
 			}
-			height + 'px';
 		}
 
-		css = { width: settings.w + loadedWidth + interfaceWidth, height: settings.h + loadedHeight + interfaceHeight, top: top, left: left };
+		console.log('box height', settings.h + loadedHeight + interfaceHeight, settings.h, loadedHeight, interfaceHeight);
+		let boxHeight;
+
+		if (settings.get('cancelButton') == 0 && settings.get('saveButton') == 0) {
+			boxHeight = settings.h + settings.get('padding') * 2;
+		} else {
+			boxHeight = settings.h + loadedHeight + interfaceHeight;
+		}
+		css = {
+			width: settings.w + loadedWidth + interfaceWidth,
+			height: boxHeight,
+			top,
+			left,
+		};
 
 		// setting the speed to 0 if the content hasn't changed size or position
 		if (speed) {
@@ -827,6 +850,8 @@
 				// shrink the wrapper down to exactly the size of colorbox to avoid a bug in IE's iframe implementation.
 				$wrap[0].style.width = (settings.w + loadedWidth + interfaceWidth) + "px";
 				$wrap[0].style.height = (settings.h + loadedHeight + interfaceHeight) + "px";
+
+				// fluid width always
 				$loaded[0].style.width = 'unset';
 
 				if (settings.get('reposition')) {
@@ -904,6 +929,15 @@
 			return settings.w;
 		}
 		function getHeight() {
+			// if there's no actions buttons, only add the padding
+
+			if (settings.get('cancelButton') == 0 && settings.get('saveButton') == 0) {
+				// const maxHeight = settings.get('maxHeight');
+				// const initialHeight = settings.get('initialHeight');
+				// return settings.h = Math.max((maxHeight !== false ? Math.min(initialHeight, setSize(maxHeight, 'y')) : initialHeight) - loadedHeight - interfaceHeight, 0);
+			}
+
+			// console.log('getting height', settings.h, $loaded.height())
 			settings.h = settings.h || $loaded.height();
 			settings.h = settings.mh && settings.mh < settings.h ? settings.mh : settings.h;
 			return settings.h;
