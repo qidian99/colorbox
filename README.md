@@ -3,6 +3,11 @@ A customizable lightbox plugin for jQuery.  See the [project page](http://jacklm
 
 ## Changelog:
 
+##### Version 2.0.1 - 2020/09/16
+
+* Fixed resize issue and loaded content fluid width
+* Remove the timeout when adding resize listener. This also removes IE8 support completely
+
 ##### Version 2.0.0 - 2020/09/15
 
 * Added custom colorbox with save and cancel buttons
