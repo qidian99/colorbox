@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <link rel="stylesheet" href="example_form.css" />
+</head>
+
+<body>
+  <form id="isd-example-form">
+    <h1>Add Logo & Text</h1>
+    <h2 class="title">Add Logo</h2>
+    <div class="form-logo">
+      <label class="label" for="url">Enter URL (Include http://)</label>
+      <input id="url" type="text" />
+    </div>
+    <div class="form-upload">
+      <label for="file-upload">
+        <span data-role="button">
+          Choose File
+        </span>
+        <span data-role="description">No file chosen yet</span>
+      </label>
+
+      <input id="file-upload" type="file" />
+      <button>Upload Image</button>
+    </div>
+    <h2 class="title">Slogan Text</h2>
+    <div class="form-slogan">
+      <input type="text" />
+    </div>
+    <div class="form-actions"><button>Save</button><button>Cancel</button></div>
+  </form>
+</body>
+
+</html>

@@ -15,6 +15,9 @@
 		"url": "http://www.jacklmoore.com",
 		"email": "hello@jacklmoore.com"
 	},
+	"contributors": [
+		"Dian Qi <qidian990107@163.com>"
+	],
 	"main": "jquery.colorbox.js",
 	"license": "MIT",
 	"homepage": "http://www.jacklmoore.com/colorbox",
