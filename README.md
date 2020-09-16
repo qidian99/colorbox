@@ -1,6 +1,30 @@
 ## About Colorbox:
 A customizable lightbox plugin for jQuery.  See the [project page](http://jacklmoore.com/colorbox/) for documentation and a demonstration, and the [FAQ](http://jacklmoore.com/colorbox/faq/) for solutions and examples to common issues.  Released under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 
+## Way to restructure
+So, are you cool with restructuring the files a little?
+
+```bash
+$ cp ./jquery.colorbox.js ./dist/jquery.colorbox.js
+$ uglify-js ./dist/jquery.colorbox.js
+$ uglify-js ./i18n/*.js ./dist/i18n/*.js
+$ mv the core css classes from exampleN/colorbox.css into ./dist/jquery.colorbox.css
+$ mv Each exampleN/colorbox.css and `*.png` moved to themeN/jquery.colorbox.css and dist/themeN/*.png
+```
+After we're done, dist folder would look like this:
+
+./dist/jquery.colorbox.js
+./dist/jquery.colorbox.min.js
+./dist/jquery.colorbox-core.css
+./dist/i18n/*
+./dist/themeN/jquery.colorbox.css
+./dist/themeN/*.png
+Lastly, the following:
+
+update bower.json/main to dist/
+update package.json at cdnjs/ajax/libs/jquery.colorbox with new filemap pointing to dist folder
+Optimally create gulp deploy or grunt to create dist from current src
+
 ## Changelog:
 
 ##### Version 2.0.1 - 2020/09/16
