@@ -926,6 +926,51 @@
 		}
 	};
 
+
+	publicMethod.resizeWithMaxHeight = function (options) {
+		var scrolltop;
+
+		if (open) {
+			options = options || {};
+
+			if (options.width) {
+				settings.w = setSize(options.width, 'x') - loadedWidth - interfaceWidth;
+			}
+
+			if (options.innerWidth) {
+				settings.w = setSize(options.innerWidth, 'x');
+			}
+
+			// $loaded.css({ width: settings.w });
+
+			if (options.height) {
+				settings.h = setSize(options.height, 'y') - loadedHeight - interfaceHeight;
+			}
+
+			if (options.innerHeight) {
+				settings.h = setSize(options.innerHeight, 'y');
+			}
+
+			if (!options.innerHeight && !options.height) {
+				scrolltop = $loaded.scrollTop();
+				$loaded.css({ height: "auto" });
+				if (!options.maxHeight) {
+					settings.h = $loaded.height();
+				} else {
+					settings.h = $loaded.height() > options.maxHeight ? options.maxHeight : $loaded.height();
+				}
+			}
+
+			$loaded.css({ height: settings.h });
+
+			if (scrolltop) {
+				$loaded.scrollTop(scrolltop);
+			}
+
+			publicMethod.position(settings.get('transition') === "none" ? 0 : settings.get('speed'));
+		}
+	};
+
 	publicMethod.prep = function (object) {
 		if (!open) {
 			return;
