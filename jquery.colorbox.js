@@ -85,6 +85,7 @@
 			cancelButtonBG: '#CCC',
 			onSaved: false,
 			padding: 32,
+			buttons: false,
 
 			rel: function () {
 				return this.rel;
@@ -514,7 +515,17 @@
 				settings.get('onSaved');
 			});
 
-			if ($buttonGroup.children().length > 0) {
+			if (settings.get('buttons')) {
+				$dummy = $('<a/>').attr({
+					id: prefix + 'Dummy',
+					"data-action": "dummy",
+					"data-type": "button",
+				}).css({
+					"visibility": 'hidden',
+				}).html('Dummy').appendTo($buttonGroup);;
+			}
+
+			if ($buttonGroup.children().length > 0 || settings.get('buttons')) {
 				$buttonGroup.appendTo($content);
 			}
 
@@ -528,7 +539,7 @@
 	// Colorbox's markup needs to be added to the DOM prior to being called
 	// so that the browser will go ahead and load the CSS background images.
 	function appendHTML() {
-		console.log('appending html', $box, !$box)
+		// console.log('appending html', $box, !$box)
 		if (!$box) {
 			init = false;
 			$window = $(window);
@@ -932,6 +943,10 @@
 
 		if (open) {
 			options = options || {};
+
+			// if (options.autoWidth) {
+			// 	settings.w = setSize(options.width, 'x') - loadedWidth - interfaceWidth;
+			// }
 
 			if (options.width) {
 				settings.w = setSize(options.width, 'x') - loadedWidth - interfaceWidth;
