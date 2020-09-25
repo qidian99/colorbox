@@ -521,7 +521,7 @@
 					"data-action": "dummy",
 					"data-type": "button",
 				}).css({
-					"visibility": "hidden",
+					"display": "none",
 				}).html(' ').appendTo($buttonGroup);
 			}
 
