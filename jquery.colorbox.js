@@ -521,8 +521,8 @@
 					"data-action": "dummy",
 					"data-type": "button",
 				}).css({
-					"visibility": 'hidden',
-				}).html('Dummy').appendTo($buttonGroup);;
+					"visibility": "hidden",
+				}).html(' ').appendTo($buttonGroup);
 			}
 
 			if ($buttonGroup.children().length > 0 || settings.get('buttons')) {
@@ -805,6 +805,8 @@
 		$wrap[0].style.width = '9999px';
 		$wrap[0].style.height = '9999px';
 
+		var noButton = (settings.get('cancelButton') == 0 && settings.get('saveButton') == 0) && settings.get('buttons') == 0;
+
 		function modalDimensions() {
 			// console.log('interfaceWidth', interfaceWidth)
 			// $topBorder[0].style.width = $bottomBorder[0].style.width = $content[0].style.width =
@@ -827,7 +829,7 @@
 
 			// Add extra height for the buttons
 			// Unset content margin bottom
-			if (settings.get('cancelButton') == 0 && settings.get('saveButton') == 0) {
+			if (noButton) {
 				// height += 66;
 				$loaded[0].style["margin-bottom"] = 'unset';
 			}
@@ -836,7 +838,7 @@
 		// console.log('box height', settings.h + loadedHeight + interfaceHeight, settings.h, loadedHeight, interfaceHeight);
 		var boxHeight;
 
-		if (settings.get('cancelButton') == 0 && settings.get('saveButton') == 0) {
+		if (noButton) {
 			boxHeight = settings.h + settings.get('padding') * 2;
 		} else {
 			boxHeight = settings.h + loadedHeight + interfaceHeight;
