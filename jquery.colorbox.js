@@ -86,6 +86,8 @@
 			onSaved: false,
 			padding: 32,
 			buttons: false,
+      buttonAlign: 'right',
+      
 
 			rel: function () {
 				return this.rel;
@@ -491,7 +493,7 @@
 				$buttonGroup = null;
 			}
 
-			$buttonGroup = $("<div />").addClass(prefix + "ButtonGroup" );
+      $buttonGroup = $("<div />").addClass(prefix + "ButtonGroup").addClass('align-' + settings.get('buttonAlign'));
 
 			if (settings.get('saveButton') != 0) {
 				$save.css({

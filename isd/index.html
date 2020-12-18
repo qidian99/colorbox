@@ -45,6 +45,20 @@
 				// mw: 800,
 				// mh: 500,
 			});
+      $(".isd3").colorbox({
+      speed: 350,
+      opacity: 0.85,
+      // onClosed: () => alert('closed'),
+      onSaved: () => alert('saved'),
+      cancelButton: true,
+      saveButton: true,
+      buttons: true,
+      buttonAlign: 'left',
+      // width: 600,
+      // height: 450,
+      // mw: 800,
+      // mh: 500,
+      });
 			//Examples of how to assign the Colorbox event to elements
 			$(".group1").colorbox({
 				rel: 'group1'
@@ -133,7 +147,9 @@
 	<h1>Colorbox Demonstration</h1>
 	<h2>ISD</h2>
 	<p><a class="isd" href="./example_form.html">Add
-			Logo</a></p>
+			Logo with Save button</a></p>
+  <p><a class="isd3" href="./example_form.html">Add
+      Logo with Save and Cancel button</a></p>
 	<p><a class="isd2" href="./example_form.html">Add
 			Logo without buttons</a></p>
 

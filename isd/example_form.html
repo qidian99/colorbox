@@ -13,40 +13,40 @@
   </script>
   <script>
     // console.log(typeof jQuery)
-    if (typeof jQuery === "undefined") {
-      const script = document.createElement("script");
-      script.setAttribute("src",
-        "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.jshttps://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
-        );
-      document.getElementsByTagName("head")[0].appendChild(script);
+    // if (typeof jQuery === "undefined") {
+    //   const script = document.createElement("script");
+    //   script.setAttribute("src",
+    //     "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.jshttps://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    //     );
+    //   document.getElementsByTagName("head")[0].appendChild(script);
 
-      const myscript = '<script>alert("jquery loaded");<\/script>';
-      document.body.appendChild(documentFragment);
-    } else {
-      if (typeof $.colorbox !== "undefined") {
-        console.log('not loading colorbox again')
-      } else {
-        const script = document.createElement("script");
-        script.setAttribute("src", "../jquery.colorbox.js");
-        document.getElementsByTagName("head")[0].appendChild(script);
-      }
+    //   const myscript = '<script>alert("jquery loaded");<\/script>';
+    //   document.body.appendChild(documentFragment);
+    // } else {
+    //   if (typeof $.colorbox !== "undefined") {
+    //     console.log('not loading colorbox again')
+    //   } else {
+    //     const script = document.createElement("script");
+    //     script.setAttribute("src", "../jquery.colorbox.js");
+    //     document.getElementsByTagName("head")[0].appendChild(script);
+    //   }
 
-      $(document).ready(function () {
-        // ISD specific
-        $(".isd").colorbox({
-          speed: 350,
-          opacity: 0.85,
-          // onClosed: () => alert('closed'),
-          onSaved: () => alert('saved'),
-          cancelButton: false,
-          saveButton: false,
-          // width: 600,
-          // height: 450,
-          // mw: 800,
-          // mh: 500,
-        });
-      })
-    }
+    //   $(document).ready(function () {
+    //     // ISD specific
+    //     $(".isd").colorbox({
+    //       speed: 350,
+    //       opacity: 0.85,
+    //       // onClosed: () => alert('closed'),
+    //       onSaved: () => alert('saved'),
+    //       cancelButton: false,
+    //       saveButton: false,
+    //       // width: 600,
+    //       // height: 450,
+    //       // mw: 800,
+    //       // mh: 500,
+    //     });
+    //   })
+    // }
   </script>
 </head>
 
@@ -75,7 +75,7 @@
     </div>
     <div class="form-actions"><button>Save</button><button>Cancel</button></div>
   </form>
-  <p><a class="isd" href="./index.html">Nested Action</a></p>
+  <!-- <p><a class="isd" href="./index.html">Nested Action</a></p> -->
 </body>
 
 </html>

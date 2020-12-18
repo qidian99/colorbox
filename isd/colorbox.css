@@ -1,12 +1,12 @@
 /**
  * Colorbox Custom Style:
  */
-/* line 29, colorbox.scss */
+/* line 30, colorbox.scss */
 #colorbox {
   top: 10%;
 }
 
-/* line 33, colorbox.scss */
+/* line 34, colorbox.scss */
 #colorbox,
 #cboxOverlay {
   position: absolute;
@@ -16,25 +16,25 @@
   overflow: hidden;
 }
 
-/* line 42, colorbox.scss */
+/* line 43, colorbox.scss */
 #cboxOverlay {
   position: fixed;
   width: 100%;
   height: 100%;
 }
 
-/* line 47, colorbox.scss */
+/* line 49, colorbox.scss */
 #cboxMiddleLeft,
 #cboxBottomLeft {
   clear: left;
 }
 
-/* line 51, colorbox.scss */
+/* line 54, colorbox.scss */
 #cboxTitle {
   margin: 0;
 }
 
-/* line 54, colorbox.scss */
+/* line 58, colorbox.scss */
 #cboxLoadingOverlay,
 #cboxLoadingGraphic {
   position: absolute;
@@ -48,7 +48,7 @@
   * These elements are buttons, and may need to have additional
   * styles reset to avoid unwanted base styles.
   */
-/* line 66, colorbox.scss */
+/* line 71, colorbox.scss */
 #cboxPrevious,
 #cboxNext,
 #cboxClose,
@@ -66,7 +66,7 @@
   * Avoid outlines on :active (mouseclick),
   * but preserve outlines on :focus (tabbed navigating)
   */
-/* line 82, colorbox.scss */
+/* line 88, colorbox.scss */
 #cboxPrevious:active,
 #cboxNext:active,
 #cboxClose:active,
@@ -74,7 +74,7 @@
   outline: 0;
 }
 
-/* line 88, colorbox.scss */
+/* line 95, colorbox.scss */
 .cboxPhoto {
   float: left;
   margin: auto;
@@ -84,7 +84,7 @@
   max-height: 100%;
 }
 
-/* line 96, colorbox.scss */
+/* line 104, colorbox.scss */
 .cboxIframe {
   width: 100%;
   height: 100%;
@@ -93,7 +93,7 @@
 }
 
 /* Reset box sizing to content-box if theme is using border-box. */
-/* line 103, colorbox.scss */
+/* line 112, colorbox.scss */
 #colorbox,
 #cboxLoadedContent {
   -moz-box-sizing: content-box;
@@ -101,105 +101,105 @@
   box-sizing: content-box;
 }
 
-/* line 110, colorbox.scss */
+/* line 119, colorbox.scss */
 #cboxOverlay {
   background: #000;
 }
 
-/* line 113, colorbox.scss */
+/* line 123, colorbox.scss */
 #colorbox {
   outline: 0;
 }
 
-/* line 117, colorbox.scss */
+/* line 127, colorbox.scss */
 #cboxTitle {
   display: none;
 }
 
-/* line 121, colorbox.scss */
+/* line 131, colorbox.scss */
 #cboxTopLeft {
   width: 15px;
   height: 15px;
   display: none;
 }
 
-/* line 126, colorbox.scss */
+/* line 137, colorbox.scss */
 #cboxTopCenter {
   height: 15px;
   display: none;
 }
 
-/* line 130, colorbox.scss */
+/* line 142, colorbox.scss */
 #cboxTopRight {
   width: 15px;
   height: 15px;
   display: none;
 }
 
-/* line 135, colorbox.scss */
+/* line 148, colorbox.scss */
 #cboxBottomLeft {
   width: 15px;
   height: 10px;
   display: none;
 }
 
-/* line 140, colorbox.scss */
+/* line 154, colorbox.scss */
 #cboxBottomCenter {
   height: 10px;
   display: none;
 }
 
-/* line 144, colorbox.scss */
+/* line 159, colorbox.scss */
 #cboxBottomRight {
   width: 15px;
   height: 10px;
   display: none;
 }
 
-/* line 149, colorbox.scss */
+/* line 165, colorbox.scss */
 #cboxMiddleLeft {
   width: 15px;
   display: none;
 }
 
-/* line 153, colorbox.scss */
+/* line 170, colorbox.scss */
 #cboxMiddleRight {
   width: 15px;
   display: none;
 }
 
-/* line 157, colorbox.scss */
+/* line 175, colorbox.scss */
 #cboxError {
   padding: 50px;
   border: 1px solid #ccc;
 }
 
-/* line 161, colorbox.scss */
+/* line 180, colorbox.scss */
 #cboxLoadedContent {
   margin-bottom: 28px;
   padding: 0;
 }
-/* line 167, colorbox.scss */
+/* line 186, colorbox.scss */
 #cboxLoadedContent button[id^="edit-submit"] {
   padding: unset;
 }
-/* line 173, colorbox.scss */
+/* line 192, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form .form-item-logo-text {
   padding: 1.5em 0em;
 }
-/* line 175, colorbox.scss */
+/* line 195, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form .form-item-logo-text label {
   font-weight: bold;
 }
-/* line 179, colorbox.scss */
+/* line 200, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form .form-item-url {
   padding-top: 1em;
 }
-/* line 181, colorbox.scss */
+/* line 203, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form .form-item-url label {
   font-weight: bold;
 }
-/* line 186, colorbox.scss */
+/* line 208, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form #edit-file-upload-button {
   border-radius: 0.3em;
   padding: 0.5em 1.5em;
@@ -211,7 +211,7 @@
 #cboxLoadedContent #isd_add_logo_form #edit-file-upload-button .glyphicon {
   display: none;
 }
-/* line 191, colorbox.scss */
+/* line 213, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form button[id^="edit-file-remove-button"] {
   border-radius: 0.3em;
   padding: 0.5em 1.5em;
@@ -223,21 +223,21 @@
 #cboxLoadedContent #isd_add_logo_form button[id^="edit-file-remove-button"] .glyphicon {
   display: none;
 }
-/* line 198, colorbox.scss */
+/* line 220, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form #edit-file-upload .form-control {
   box-shadow: none;
   padding: 0.5em 0em;
   background: transparent;
 }
-/* line 205, colorbox.scss */
+/* line 228, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form hr {
   display: none;
 }
-/* line 208, colorbox.scss */
+/* line 232, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form h1 {
   margin-top: 0;
 }
-/* line 216, colorbox.scss */
+/* line 241, colorbox.scss */
 #cboxLoadedContent #isd_video_form button[id^="edit-submit"] {
   border: none;
   border-radius: 0.3em;
@@ -250,19 +250,19 @@
   margin: 1em;
   font-weight: bold;
 }
-/* line 219, colorbox.scss */
+/* line 245, colorbox.scss */
 #cboxLoadedContent #isd_video_form .form-item-custom-source {
   padding-top: 1em;
 }
-/* line 224, colorbox.scss */
+/* line 250, colorbox.scss */
 #cboxLoadedContent #isd_video_form #isd-video-form h3 {
   margin-top: 0;
 }
-/* line 232, colorbox.scss */
+/* line 259, colorbox.scss */
 #cboxLoadedContent #isd_questions_form {
   padding: 0;
 }
-/* line 234, colorbox.scss */
+/* line 262, colorbox.scss */
 #cboxLoadedContent #isd_questions_form button[id^="edit-next"] {
   border: none;
   border-radius: 0.3em;
@@ -275,15 +275,15 @@
   margin: 1em;
   font-weight: bold;
 }
-/* line 237, colorbox.scss */
+/* line 266, colorbox.scss */
 #cboxLoadedContent #isd_questions_form h1 {
   margin-top: 0;
 }
-/* line 241, colorbox.scss */
+/* line 272, colorbox.scss */
 #cboxLoadedContent #isd_questions_form .form-item-question-amount, #cboxLoadedContent #isd_questions_form .form-item-percentage-required {
   padding-top: 1em;
 }
-/* line 248, colorbox.scss */
+/* line 280, colorbox.scss */
 #cboxLoadedContent #isd_agreement_text_form button[id^="edit-submit"] {
   border: none;
   border-radius: 0.3em;
@@ -296,21 +296,21 @@
   margin: 1em;
   font-weight: bold;
 }
-/* line 251, colorbox.scss */
+/* line 284, colorbox.scss */
 #cboxLoadedContent #isd_agreement_text_form #edit-signature-option {
   padding-top: 1em;
 }
-/* line 254, colorbox.scss */
+/* line 288, colorbox.scss */
 #cboxLoadedContent #isd_agreement_text_form hr {
   display: none;
 }
-/* line 258, colorbox.scss */
+/* line 293, colorbox.scss */
 #cboxLoadedContent #isd_agreement_text_form h5 {
   font-size: 36px;
   margin-top: 0;
 }
 
-/* line 264, colorbox.scss */
+/* line 300, colorbox.scss */
 #cboxTitle {
   position: absolute;
   background: rgba(255, 255, 255, 0.7);
@@ -324,7 +324,7 @@
   box-sizing: border-box;
 }
 
-/* line 276, colorbox.scss */
+/* line 313, colorbox.scss */
 #cboxCurrent {
   position: absolute;
   bottom: 4px;
@@ -332,7 +332,7 @@
   color: #949494;
 }
 
-/* line 282, colorbox.scss */
+/* line 320, colorbox.scss */
 .cboxSlideshow_on #cboxSlideshow {
   position: absolute;
   bottom: 0px;
@@ -343,12 +343,12 @@
   text-indent: -9999px;
 }
 
-/* line 291, colorbox.scss */
+/* line 330, colorbox.scss */
 .cboxSlideshow_on #cboxSlideshow:hover {
   background-position: -101px -50px;
 }
 
-/* line 294, colorbox.scss */
+/* line 334, colorbox.scss */
 .cboxSlideshow_off #cboxSlideshow {
   position: absolute;
   bottom: 0px;
@@ -359,12 +359,12 @@
   text-indent: -9999px;
 }
 
-/* line 303, colorbox.scss */
+/* line 344, colorbox.scss */
 .cboxSlideshow_off #cboxSlideshow:hover {
   background-position: -49px -50px;
 }
 
-/* line 306, colorbox.scss */
+/* line 348, colorbox.scss */
 #cboxPrevious {
   position: absolute;
   bottom: 0;
@@ -375,12 +375,12 @@
   text-indent: -9999px;
 }
 
-/* line 315, colorbox.scss */
+/* line 358, colorbox.scss */
 #cboxPrevious:hover {
   background-position: -75px -25px;
 }
 
-/* line 318, colorbox.scss */
+/* line 362, colorbox.scss */
 #cboxNext {
   position: absolute;
   bottom: 0;
@@ -389,22 +389,22 @@
   height: 25px;
 }
 
-/* line 325, colorbox.scss */
+/* line 370, colorbox.scss */
 #cboxNext:hover {
   background-position: -50px -25px;
 }
 
-/* line 328, colorbox.scss */
+/* line 374, colorbox.scss */
 #cboxLoadingOverlay {
   background: transparent;
 }
 
-/* line 332, colorbox.scss */
+/* line 379, colorbox.scss */
 #cboxLoadingGraphic {
   background: url(images/loading_animation.gif) no-repeat center center;
 }
 
-/* line 335, colorbox.scss */
+/* line 383, colorbox.scss */
 #cboxClose {
   display: block;
   overflow: hidden;
@@ -413,18 +413,18 @@
   right: 16px;
   top: 16px;
 }
-/* line 342, colorbox.scss */
+/* line 391, colorbox.scss */
 #cboxClose::before {
   display: inline;
   content: "\2715";
   font-size: 30px;
 }
-/* line 347, colorbox.scss */
+/* line 397, colorbox.scss */
 #cboxClose:hover {
   opacity: 0.7;
 }
 
-/* line 363, colorbox.scss */
+/* line 415, colorbox.scss */
 .colorbox-submit-btn {
   position: absolute;
   bottom: 10px;
@@ -435,18 +435,18 @@
   font-weight: bold;
 }
 
-/* line 373, colorbox.scss */
+/* line 426, colorbox.scss */
 #cboxClose:hover {
   background-position: -25px -25px;
 }
 
-/* line 377, colorbox.scss */
+/* line 430, colorbox.scss */
 #cboxLoadedContent {
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-/* line 384, colorbox.scss */
+/* line 437, colorbox.scss */
 #cboxContent {
   float: unset;
   width: 100%;
@@ -456,7 +456,7 @@
   box-sizing: border-box;
 }
 
-/* line 396, colorbox.scss */
+/* line 449, colorbox.scss */
 #colorbox {
   background: #e8e8e8;
   -moz-border-radius: 12px;
@@ -464,7 +464,7 @@
   border-radius: 12px;
 }
 
-/* line 404, colorbox.scss */
+/* line 457, colorbox.scss */
 #cboxWrapper {
   top: 0;
   left: 0;
@@ -473,32 +473,39 @@
   /* Handle */
   /* Handle on hover */
 }
-/* line 413, colorbox.scss */
+/* line 466, colorbox.scss */
 #cboxWrapper ::-webkit-scrollbar {
   display: none;
 }
-/* line 418, colorbox.scss */
+/* line 471, colorbox.scss */
 #cboxWrapper ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-/* line 423, colorbox.scss */
+/* line 476, colorbox.scss */
 #cboxWrapper ::-webkit-scrollbar-thumb {
   background: #888;
 }
-/* line 428, colorbox.scss */
+/* line 481, colorbox.scss */
 #cboxWrapper ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-/* line 432, colorbox.scss */
+/* line 485, colorbox.scss */
 #cboxWrapper .cboxButtonGroup {
   position: absolute;
-  right: 30px;
   bottom: 25px;
   display: flex;
   justify-content: flex-end;
   margin: 0 -12px;
 }
-/* line 441, colorbox.scss */
+/* line 490, colorbox.scss */
+#cboxWrapper .cboxButtonGroup.align-right {
+  right: 30px;
+}
+/* line 493, colorbox.scss */
+#cboxWrapper .cboxButtonGroup.align- left {
+  left: 30px;
+}
+/* line 504, colorbox.scss */
 #cboxWrapper .cboxButtonGroup a[data-type="button"] {
   padding: 8px 12px;
   color: #fff;
@@ -508,7 +515,7 @@
   margin: 0 12px;
   min-height: 18px;
 }
-/* line 449, colorbox.scss */
+/* line 513, colorbox.scss */
 #cboxWrapper .cboxButtonGroup a[data-type="button"]:hover {
   cursor: pointer;
   opacity: 0.7;
