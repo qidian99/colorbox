@@ -179,10 +179,6 @@
   margin-bottom: 28px;
   padding: 0;
 }
-/* line 186, colorbox.scss */
-#cboxLoadedContent button[id^="edit-submit"] {
-  padding: unset;
-}
 /* line 192, colorbox.scss */
 #cboxLoadedContent #isd_add_logo_form .form-item-logo-text {
   padding: 1.5em 0em;
